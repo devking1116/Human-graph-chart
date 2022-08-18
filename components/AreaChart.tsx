@@ -3,7 +3,7 @@ import Chart from "react-apexcharts";
 
 const AreaChart = ({chartData}: any) => {
 
-  const [bulkData, setBulkData] = useState<Array<string>>([])
+  const [bulkData, setBulkData] = useState<Array<number>>([])
   const [category, setCategory] = useState<Array<string>>([])
 
   let state = {
@@ -12,7 +12,6 @@ const AreaChart = ({chartData}: any) => {
         id: 'escrow'
       },
       xaxis: {
-        type: 'category',
         categories: category
       }
     },
@@ -23,7 +22,7 @@ const AreaChart = ({chartData}: any) => {
   };
 
   const filter = (chartData: any) => {
-    let bulkDataTemp: Array<string> = [];
+    let bulkDataTemp: Array<number> = [];
     let categoryTemp: Array<string> = [];
     chartData.map((item: any) => {
       bulkDataTemp.push(item.bulkCount)
